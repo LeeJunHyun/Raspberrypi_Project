@@ -11,13 +11,14 @@ class OpenDoor():
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.pin,GPIO.OUT)
         self.p = GPIO.PWM(self.pin,50)
-        self.p.start(0)
+        self.p.start(8)
 
     def open(self):
-        self.p.ChangeDutyCycle(1)
-        time.sleep(0.5)
         self.p.ChangeDutyCycle(8)
-        time.sleep(0.5)
+        time.sleep(0.3)
+        self.p.ChangeDutyCycle(3)
+        time.sleep(0.3)
+
         self.p.stop()
 
 if __name__ =='__main__':
